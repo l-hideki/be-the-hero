@@ -1,14 +1,6 @@
 const connection = require('../database/connection');
 
 module.exports = {
-    async index(request,response){
-        const{page=1}=request.query;
-
-        const incidents = await connection('incidents')
-        .limit(5)
-        .offset((page-1)*5)
-        .select('*');
-    },
     async create(request,response){
 
         const{id}=request.body;
